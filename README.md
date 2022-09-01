@@ -16,6 +16,7 @@ The philosophy behind these templates is:
 ## Description of individual templates
 
 | Template Number | Description |
+| --- | --- |
 | 1  |  |
 | 2  |  |
 | 3  |  |
@@ -35,6 +36,7 @@ The philosophy behind these templates is:
 At present templates for only one SPS/IMF combination are available, however we plan to add new templates generated using FSPS, BC03, Pegase.2, etc. as soon as possible.
 
 | Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit |
+| --- | --- | --- | --- |
 | BPASS | 2.2.1-binary | Chabrier | 100 |
 
 
