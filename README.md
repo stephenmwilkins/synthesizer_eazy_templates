@@ -15,20 +15,20 @@ The philosophy behind these templates is:
 
 ## Description of individual templates
 
-| Template Number | Description |
-| --- | --- |
-| 1  |  |
-| 2  |  |
-| 3  |  |
-| 4  |  |
-| 5  |  |
-| 6  |  |
-| 7  |  |
-| 8  |  |
-| 9  |  |
-| 10 |  |
-| 11 |  |
-| 12 |  |
+| Template Number | SFH | $f_{\rm esc}$ | $f_{\rm esc, Ly-\alpha}$ | $\tau_{V}$ | Notes |
+| --- | --- | --- | --- | --- | --- |
+| 1  | 10 Myr Constant  | 0.0 | 1.0 | 0.0 | |
+| 2  | 10 Myr Constant  | 0.0 | 0.0 | 0.0 | No Lyman-$\alpha$ |
+| 3  | 10 Myr Constant  | 1.0 | N/A | 0.0 | |
+| 4  | 100 Myr Constant  | 0.0 | 1.0 | 0.0 | |
+| 5  | 100 Myr Constant  | 0.0 | 1.0 | 0.3 | |
+| 6  | 100 Myr Constant  | 0.0 | 1.0 | 1.0 | |
+| 7  | 100 Myr Constant  | 0.0 | 1.0 | 3.0 | |
+| 8  | 100 Myr Burst | 1.0 | N/A | 0.0 | |
+| 9  | 316 Myr Burst | 1.0 | N/A | 0.0 | |
+| 10 | 1000 Myr Burst | 1.0 | N/A | 0.0 | |
+| 11 | 3162 Myr Burst | 1.0 | N/A | 0.0 | |
+| 12 | 10000 Myr Burst | 1.0 | N/A | 0.0 | |
 
 
 ## Available SPS models and initial mass function
