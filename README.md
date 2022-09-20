@@ -31,10 +31,10 @@ The philosophy behind these templates is:
 | 12 | 10000 Myr Burst | 1.0 | N/A | 0.0 | |
 
 
-## Available SPS models and initial mass function
+## Available SPS models and initial mass functions
 
 At present templates for only one SPS/IMF combination are available, however we plan to add new templates generated using FSPS, BC03, Pegase.2, etc. as soon as possible.
 
-| Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit |  |
+| Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit | Template Figs |
 | --- | --- | --- | --- | --- |
 | BPASS | 2.2.1-binary | Chabrier | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_chab-100.md)

@@ -11,6 +11,7 @@ from utils import read_templates
 import flare.plt as fplt
 
 
+from synthesizer.grid import parse_grid_id
 
 def plot_template_set_all(template_set_prameter_file, path_to_eazy):
 
@@ -79,40 +80,65 @@ def plot_template_set_individual(template_set_prameter_file, path_to_eazy):
     fig.savefig(f'figs/{template_set_id}_individual.png')
 
 
-def create_page(template_set_prameter_file):
+def create_page(grid_id):
 
-
-
-    template_set_id = '.'.join(template_set_prameter_file.split('.')[:-2])
+    grid_id_k = parse_grid_id(grid_id)
+    print(grid_id_k)
 
     page = f"""
-## {template_set_id}
-![](../figs/{template_set_id}_all.png)
-![](../figs/{template_set_id}_individual.png)
+## | {grid_id_k["sps_model"].upper()} | {grid_id_k["sps_model_version"]} | {grid_id_k["imf"]} | {grid_id_k["imf_hmc"]} |
+### {grid_id}
+![](../figs/Wilkins22_{grid_id}_all.png)
+![](../figs/Wilkins22_{grid_id}_individual.png)
     """
 
-    with open(f'pages/{template_set_id}.md','w+') as f:
+    with open(f'pages/Wilkins22_{grid_id}.md','w+') as f:
         f.writelines(page)
 
 
-    print(f'| BPASS | 2.2.1-binary | Chabrier | 100 | [Page](docs/pages/{template_set_id}.md)')
+
+
+    print(f'| {grid_id_k["sps_model"].upper()} | {grid_id_k["sps_model_version"]} | {grid_id_k["imf"]} | {grid_id_k["imf_hmc"]} | [Page](docs/pages/Wilkins22_{grid_id}.md)')
 
 
 
 if __name__ == '__main__':
 
 
+    sps_grids = [
+    # 'bc03_chabrier03',
+    # 'bpass-v2.2.1-bin_100-100',
+    # 'bpass-v2.2.1-bin_100-300',
+    # 'bpass-v2.2.1-bin_135-100',
+    # 'bpass-v2.2.1-bin_135-300',
+    # 'bpass-v2.2.1-bin_135all-100',
+    # 'bpass-v2.2.1-bin_170-100',
+    # 'bpass-v2.2.1-bin_170-300',
+    # 'fsps-v3.2_Chabrier03',
+    'bpass-v2.2.1-bin_chab-100',
+    # 'bpass-v2.2.1-bin_chab-300',
+    # 'maraston-rhb_kroupa',
+    # 'maraston-rhb_salpeter',
+    # 'bc03-2016-Stelib_chabrier03',
+    # 'bc03-2016-BaSeL_chabrier03',
+    # 'bc03-2016-Miles_chabrier03',
+    ]
+
+
     # --- Generate plots of the template sets in this module
 
     path_to_templates = '../' # --- templates contained in this module
 
-    for sps_grid in ['bpass-v2.2.1-bin_chab-100']:
 
-        template_set_prameter_file = f'Wilkins22_{sps_grid}.spectra.param'
+    print(parse_grid_id('bpass-v2.2.1-bin_100-300'))
+
+    for grid_id in ['bpass-v2.2.1-bin_chab-100']:
+
+        template_set_prameter_file = f'Wilkins22_{grid_id}.spectra.param'
 
         # plot_template_set_all(template_set_prameter_file, path_to_templates)
         # plot_template_set_individual(template_set_prameter_file, path_to_templates)
-        create_page(template_set_prameter_file)
+        create_page(grid_id)
 
     # --- Generate plots of other template set
 
