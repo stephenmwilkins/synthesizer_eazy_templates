@@ -35,7 +35,6 @@ The philosophy behind these templates is:
 
 | Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit | |
 | --- | --- | --- | --- | --- |
-| BC03 | 2003 | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03_chabrier03.md)
 | BPASS | v2.2.1-bin | $\alpha=1.0$ | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_100-100.md)
 | BPASS | v2.2.1-bin | $\alpha=1.0$ | 300 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_100-300.md)
 | BPASS | v2.2.1-bin | $\alpha=1.35$ | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_135-100.md)
@@ -43,12 +42,15 @@ The philosophy behind these templates is:
 | BPASS | v2.2.1-bin | Salpeter (1955) | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_135all-100.md)
 | BPASS | v2.2.1-bin | $\alpha=1.7$ | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_170-100.md)
 | BPASS | v2.2.1-bin | $\alpha=1.7$ | 300 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_170-300.md)
-| FSPS | v3.2 | Chabrier03 |  | [Page](docs/pages/Wilkins22_fsps-v3.2_Chabrier03.md)
 | BPASS | v2.2.1-bin | Chabrier (2003) | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_chab-100.md)
 | BPASS | v2.2.1-bin | Chabrier (2003) | 300 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_chab-300.md)
+| FSPS | v3.2 | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_fsps-v3.2_Chabrier03.md)
 | MARASTON | rhb | Kroupa (2003) |  | [Page](docs/pages/Wilkins22_maraston-rhb_kroupa.md)
 | MARASTON | rhb | Salpeter (1955) |  | [Page](docs/pages/Wilkins22_maraston-rhb_salpeter.md)
+| BC03 | 2003 | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03_chabrier03.md)
 | BC03 | 2016-Stelib | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03-2016-Stelib_chabrier03.md)
+| BC03 | 2016-BaSeL | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03-2016-BaSeL_chabrier03.md)
+| BC03 | 2016-Miles | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03-2016-Miles_chabrier03.md)
 
 ## Other template sets
 
