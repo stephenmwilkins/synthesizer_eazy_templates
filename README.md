@@ -18,7 +18,7 @@ The philosophy behind these templates is:
 | Template Number | SFH | $f_{\rm esc}$ | $f_{\rm esc, Ly-\alpha}$ | $\tau_{V}$ | Notes |
 | --- | --- | --- | --- | --- | --- |
 | 1  | 10 Myr Constant  | 0.0 | 1.0 | 0.0 | |
-| 2  | 10 Myr Constant  | 0.0 | 0.0 | 0.0 | No Lyman-$\alpha$ |
+| 2  | 10 Myr Constant  | 0.0 | 0.0 | 0.0 | No Lyman- $\alpha$ |
 | 3  | 10 Myr Constant  | 1.0 | N/A | 0.0 | |
 | 4  | 100 Myr Constant  | 0.0 | 1.0 | 0.0 | |
 | 5  | 100 Myr Constant  | 0.0 | 1.0 | 0.3 | |

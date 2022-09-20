@@ -6,40 +6,9 @@ from matplotlib import cm
 import cmasher as cmr
 from astropy.io import ascii
 
+from utils import read_templates
 
 import flare.plt as fplt
-
-
-
-class template:
-    pass
-
-def read_templates(template_set_prameter_file, path_to_eazy):
-
-    """ note templates are assumed to live in a folder called templates in the top-level eazy directory """
-
-    column_names = ['Template number', 'Template file name', 'Lambda_conv', 'Age', 'Template error amplitude']
-
-    params = ascii.read(f'{path_to_templates}/templates/{template_set_prameter_file}', names = column_names)
-
-    templates = {}
-
-    for template_number, template_file_name, template_age in zip(params['Template number'].data, params['Template file name'].data, params['Age'].data):
-
-        lam, flam = np.loadtxt(f'{path_to_templates}/{template_file_name}', unpack = True)
-
-        t = template()
-        t.number = template_number
-        t.file_name = template_file_name
-        t.age = template_age
-        t.lam = lam
-        t.log10lam = np.log10(lam)
-        t.flam = flam
-        t.fnu = flam * t.lam**2*1E-10*1E11/3E8 # --- convert to f_nu, normalisation doesn't matter
-
-        templates[template_number] = t
-
-    return templates
 
 
 
@@ -110,6 +79,26 @@ def plot_template_set_individual(template_set_prameter_file, path_to_eazy):
     fig.savefig(f'figs/{template_set_id}_individual.png')
 
 
+def create_page(template_set_prameter_file):
+
+    print(template_set_prameter_file)
+
+    template_set_id = '.'.join(template_set_prameter_file.split('.')[:-2])
+
+    print(template_set_id)
+
+    page = f"""
+## {template_set_id}
+![](../figs/{template_set_id}_all.png)
+![](../figs/{template_set_id}_individual.png)
+    """
+
+    with open(f'pages/{template_set_id}.md','w+') as f:
+        f.writelines(page)
+
+
+
+
 
 if __name__ == '__main__':
 
@@ -118,22 +107,22 @@ if __name__ == '__main__':
 
     path_to_templates = '../' # --- templates contained in this module
 
-    for sps_grid in ['bpass-v2.2.1_chab100-bin']:
+    for sps_grid in ['bpass-v2.2.1-bin_chab-100']:
 
         template_set_prameter_file = f'Wilkins22_{sps_grid}.spectra.param'
 
-        plot_template_set_all(template_set_prameter_file, path_to_templates)
-        plot_template_set_individual(template_set_prameter_file, path_to_templates)
-
+        # plot_template_set_all(template_set_prameter_file, path_to_templates)
+        # plot_template_set_individual(template_set_prameter_file, path_to_templates)
+        create_page(template_set_prameter_file)
 
     # --- Generate plots of other template set
 
 
-    path_to_templates = os.getenv('EAZY') # --- templates contained in this module
-
-    print(path_to_templates)
-
-    for template_set_prameter_file in ['Larson22.spectra.param','tweak_fsps_QSF_12_v3.spectra.param']:
-
-        plot_template_set_all(template_set_prameter_file, path_to_templates)
-        plot_template_set_individual(template_set_prameter_file, path_to_templates)
+    # path_to_templates = os.getenv('EAZY') # --- templates contained in this module
+    #
+    # print(path_to_templates)
+    #
+    # for template_set_prameter_file in ['Larson22.spectra.param','tweak_fsps_QSF_12_v3.spectra.param']:
+    #
+    #     plot_template_set_all(template_set_prameter_file, path_to_templates)
+    #     plot_template_set_individual(template_set_prameter_file, path_to_templates)
