@@ -46,9 +46,11 @@ class TemplateGenerator:
 
     def write_template(self, galaxy, log10age):
 
-        llam = convert_fnu_to_flam(galaxy.spectra['total'].lam, galaxy.spectra['total'].lnu)
+        lam = galaxy.spectra['total'].lam
 
-        np.savetxt(f'{self.out_dir}/{self.template_set_name}_{self.sps_grid}/{self.i}.dat', np.array([np.round(galaxy.spectra['total'].lam, 3), np.round(llam, 3)]).T)
+        llam = convert_fnu_to_flam(lam, galaxy.spectra['total'].lnu)
+
+        np.savetxt(f'{self.out_dir}/{self.template_set_name}_{self.sps_grid}/{self.i}.dat', np.array([lam, llam]).T)
 
         self.param_file.append(f'{self.i} templates/{self.template_set_name}_{self.sps_grid}/{self.i}.dat 1.0 {10**(log10age-9):.2f} 1.0')
 
@@ -112,22 +114,22 @@ if __name__ == '__main__':
 
 
     sps_grids = [
-    'bc03_chabrier03',
-    'bpass-v2.2.1-bin_100-100',
-    'bpass-v2.2.1-bin_100-300',
-    'bpass-v2.2.1-bin_135-100',
-    'bpass-v2.2.1-bin_135-300',
-    'bpass-v2.2.1-bin_135all-100',
-    'bpass-v2.2.1-bin_170-100',
-    'bpass-v2.2.1-bin_170-300',
+    # 'bc03_chabrier03',
+    # 'bpass-v2.2.1-bin_100-100',
+    # 'bpass-v2.2.1-bin_100-300',
+    # 'bpass-v2.2.1-bin_135-100',
+    # 'bpass-v2.2.1-bin_135-300',
+    # 'bpass-v2.2.1-bin_135all-100',
+    # 'bpass-v2.2.1-bin_170-100',
+    # 'bpass-v2.2.1-bin_170-300',
     # 'fsps-v3.2_Chabrier03',
-    'bpass-v2.2.1-bin_chab-100',
+    # 'bpass-v2.2.1-bin_chab-100',
     # 'bpass-v2.2.1-bin_chab-300',
     # 'maraston-rhb_kroupa',
     # 'maraston-rhb_salpeter',
     # 'bc03-2016-Stelib_chabrier03',
-    # 'bc03-2016-BaSeL_chabrier03',
-    # 'bc03-2016-Miles_chabrier03',
+    'bc03-2016-BaSeL_chabrier03',
+    'bc03-2016-Miles_chabrier03',
     ]
     cloudy_grid = 'cloudy-v17.03_log10Uref-2'
     Z = 0.01

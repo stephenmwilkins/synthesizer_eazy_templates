@@ -153,12 +153,12 @@ if __name__ == '__main__':
     'bpass-v2.2.1-bin_135all-100',
     'bpass-v2.2.1-bin_170-100',
     'bpass-v2.2.1-bin_170-300',
-    # 'fsps-v3.2_Chabrier03',
+    'fsps-v3.2_Chabrier03',
     'bpass-v2.2.1-bin_chab-100',
-    # 'bpass-v2.2.1-bin_chab-300',
-    # 'maraston-rhb_kroupa',
-    # 'maraston-rhb_salpeter',
-    # 'bc03-2016-Stelib_chabrier03',
+    'bpass-v2.2.1-bin_chab-300',
+    'maraston-rhb_kroupa',
+    'maraston-rhb_salpeter',
+    'bc03-2016-Stelib_chabrier03',
     # 'bc03-2016-BaSeL_chabrier03',
     # 'bc03-2016-Miles_chabrier03',
     ]
@@ -168,8 +168,8 @@ if __name__ == '__main__':
 
     path_to_templates = '../' # --- templates contained in this module
 
-    # default_grid_id = 'fsps-v3.2_Chabrier03'
-    default_grid_id = 'bpass-v2.2.1-bin_chab-100'
+    default_grid_id = 'fsps-v3.2_Chabrier03'
+    # default_grid_id = 'bpass-v2.2.1-bin_chab-100'
     default_template_set_prameter_file = f'Wilkins22_{default_grid_id}.spectra.param'
 
     for grid_id in grid_ids:
@@ -184,11 +184,10 @@ if __name__ == '__main__':
     # --- Generate plots of other template set
 
 
-    # path_to_templates = os.getenv('EAZY') # --- templates contained in this module
-    #
-    # print(path_to_templates)
-    #
-    # for template_set_prameter_file in ['Larson22.spectra.param','tweak_fsps_QSF_12_v3.spectra.param']:
-    #
-    #     plot_template_set_all(template_set_prameter_file, path_to_templates)
-    #     plot_template_set_individual(template_set_prameter_file, path_to_templates)
+    path_to_templates = os.getenv('EAZY') # --- templates contained in this module
+
+    for template_set_prameter_file in ['Larson22.spectra.param','tweak_fsps_QSF_12_v3.spectra.param']:
+
+        plot_template_set_all(template_set_prameter_file, path_to_templates)
+        plot_template_set_individual(template_set_prameter_file, path_to_templates)
+        
