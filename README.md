@@ -38,4 +38,11 @@ At present templates for only one SPS/IMF combination are available, however we 
 | Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit | Template Figs |
 | --- | --- | --- | --- | --- |
 | BC03 |  | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03_chabrier03.md)
+| BPASS | v2.2.1-bin | $\alpha=1.0$ | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_100-100.md)
+| BPASS | v2.2.1-bin | $\alpha=1.0$ | 300 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_100-300.md)
+| BPASS | v2.2.1-bin | $\alpha=1.35$ | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_135-100.md)
+| BPASS | v2.2.1-bin | $\alpha=1.35$ | 300 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_135-300.md)
+| BPASS | v2.2.1-bin | 135all | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_135all-100.md)
+| BPASS | v2.2.1-bin | $\alpha=1.7$ | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_170-100.md)
+| BPASS | v2.2.1-bin | $\alpha=1.7$ | 300 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_170-300.md)
 | BPASS | v2.2.1-bin | Chabrier (2003) | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_chab-100.md)

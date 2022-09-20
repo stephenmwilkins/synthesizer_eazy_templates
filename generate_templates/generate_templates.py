@@ -113,13 +113,13 @@ if __name__ == '__main__':
 
     sps_grids = [
     'bc03_chabrier03',
-    # 'bpass-v2.2.1-bin_100-100',
-    # 'bpass-v2.2.1-bin_100-300',
-    # 'bpass-v2.2.1-bin_135-100',
-    # 'bpass-v2.2.1-bin_135-300',
-    # 'bpass-v2.2.1-bin_135all-100',
-    # 'bpass-v2.2.1-bin_170-100',
-    # 'bpass-v2.2.1-bin_170-300',
+    'bpass-v2.2.1-bin_100-100',
+    'bpass-v2.2.1-bin_100-300',
+    'bpass-v2.2.1-bin_135-100',
+    'bpass-v2.2.1-bin_135-300',
+    'bpass-v2.2.1-bin_135all-100',
+    'bpass-v2.2.1-bin_170-100',
+    'bpass-v2.2.1-bin_170-300',
     # 'fsps-v3.2_Chabrier03',
     'bpass-v2.2.1-bin_chab-100',
     # 'bpass-v2.2.1-bin_chab-300',
@@ -133,6 +133,8 @@ if __name__ == '__main__':
     Z = 0.01
 
     for sps_grid in sps_grids:
+
+        print(sps_grid)
 
         te = TemplateGenerator(sps_grid, cloudy_grid)
 
