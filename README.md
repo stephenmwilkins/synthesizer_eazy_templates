@@ -33,8 +33,6 @@ The philosophy behind these templates is:
 
 ## Available SPS models and initial mass functions
 
-At present templates for only one SPS/IMF combination are available, however we plan to add new templates generated using FSPS, BC03, Pegase.2, etc. as soon as possible.
-
 | Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit | |
 | --- | --- | --- | --- | --- |
 | BC03 | 2003 | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03_chabrier03.md)
