@@ -1,5 +1,5 @@
 
-## | FSPS | v3.2 | Chabrier03 |  |
+## | FSPS | v3.2 | Chabrier (2003) |  |
 ### fsps-v3.2_Chabrier03
 ![](../figs/Wilkins22_fsps-v3.2_Chabrier03_all.png)
 ![](../figs/Wilkins22_fsps-v3.2_Chabrier03_individual.png)

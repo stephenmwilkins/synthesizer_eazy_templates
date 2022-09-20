@@ -145,7 +145,6 @@ if __name__ == '__main__':
 
 
     grid_ids = [
-    'bc03_chabrier03',
     'bpass-v2.2.1-bin_100-100',
     'bpass-v2.2.1-bin_100-300',
     'bpass-v2.2.1-bin_135-100',
@@ -153,14 +152,15 @@ if __name__ == '__main__':
     'bpass-v2.2.1-bin_135all-100',
     'bpass-v2.2.1-bin_170-100',
     'bpass-v2.2.1-bin_170-300',
-    'fsps-v3.2_Chabrier03',
     'bpass-v2.2.1-bin_chab-100',
     'bpass-v2.2.1-bin_chab-300',
+    'fsps-v3.2_Chabrier03',
     'maraston-rhb_kroupa',
     'maraston-rhb_salpeter',
+    'bc03_chabrier03',
     'bc03-2016-Stelib_chabrier03',
-    # 'bc03-2016-BaSeL_chabrier03',
-    # 'bc03-2016-Miles_chabrier03',
+    'bc03-2016-BaSeL_chabrier03',
+    'bc03-2016-Miles_chabrier03',
     ]
 
 
@@ -190,4 +190,3 @@ if __name__ == '__main__':
 
         plot_template_set_all(template_set_prameter_file, path_to_templates)
         plot_template_set_individual(template_set_prameter_file, path_to_templates)
-        
