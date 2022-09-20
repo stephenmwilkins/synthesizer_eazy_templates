@@ -36,19 +36,5 @@ The philosophy behind these templates is:
 At present templates for only one SPS/IMF combination are available, however we plan to add new templates generated using FSPS, BC03, Pegase.2, etc. as soon as possible.
 
 | Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit |  |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | BPASS | 2.2.1-binary | Chabrier | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_chab-100.md)
-
-
-## Plots
-
-### BPASS 2.2.1-binary Chabrier 100
-
-![](docs/figs/Wilkins22_bpass-v2.2.1_chab100-bin_all.png)
-
-
-### tweak_fsps_QSF_12_v3
-
-The popular tweak_fsps_QSF_12_v3 template set.
-
-![](docs/figs/tweak_fsps_QSF_12_v3_all.png)
