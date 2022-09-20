@@ -3,4 +3,5 @@
 ### bpass-v2.2.1-bin_chab-100
 ![](../figs/Wilkins22_bpass-v2.2.1-bin_chab-100_all.png)
 ![](../figs/Wilkins22_bpass-v2.2.1-bin_chab-100_individual.png)
+![](../figs/Wilkins22_bpass-v2.2.1-bin_chab-100_comparison.png)
     

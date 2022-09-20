@@ -37,4 +37,5 @@ At present templates for only one SPS/IMF combination are available, however we 
 
 | Population Synthesis Model | Version | Initial Mass Function | Upper Mass Limit | Template Figs |
 | --- | --- | --- | --- | --- |
-| BPASS | 2.2.1-binary | Chabrier | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_chab-100.md)
+| BC03 |  | Chabrier (2003) |  | [Page](docs/pages/Wilkins22_bc03_chabrier03.md)
+| BPASS | v2.2.1-bin | Chabrier (2003) | 100 | [Page](docs/pages/Wilkins22_bpass-v2.2.1-bin_chab-100.md)

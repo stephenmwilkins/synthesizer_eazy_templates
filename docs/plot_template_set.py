@@ -1,6 +1,10 @@
 
 import os
+import warnings
+warnings.filterwarnings("ignore")
+
 import numpy as np
+
 import matplotlib.pyplot as plt
 from matplotlib import cm
 import cmasher as cmr
@@ -8,14 +12,14 @@ from astropy.io import ascii
 
 from utils import read_templates
 
-import flare.plt as fplt
+plt.style.use('http://stephenwilkins.co.uk/matplotlibrc.txt')
 
 
 from synthesizer.grid import parse_grid_id
 
-def plot_template_set_all(template_set_prameter_file, path_to_eazy):
+def plot_template_set_all(template_set_prameter_file, path_to_templates):
 
-    templates = read_templates(template_set_prameter_file, path_to_eazy)
+    templates = read_templates(template_set_prameter_file, path_to_templates)
 
     colors = cmr.take_cmap_colors('cmr.tropical', len(templates.keys())) #, cmap_range=(0.15, 0.85)
 
@@ -42,6 +46,43 @@ def plot_template_set_all(template_set_prameter_file, path_to_eazy):
 
     fig.savefig(f'figs/{template_set_id}_all.pdf')
     fig.savefig(f'figs/{template_set_id}_all.png')
+
+
+def plot_template_comparison(default_template_set_prameter_file, template_set_prameter_file, path_to_templates):
+
+    default_templates = read_templates(default_template_set_prameter_file, path_to_templates)
+    templates = read_templates(template_set_prameter_file, path_to_templates)
+
+    colors = cmr.take_cmap_colors('cmr.tropical', len(templates.keys())) #, cmap_range=(0.15, 0.85)
+
+    left  = 0.15
+    bottom = 0.15
+    width = 0.8
+    height = 0.8
+
+    lam_range = [3, 4]
+
+    fig = plt.figure(figsize = (3.5, 5))
+    ax = fig.add_axes((left, bottom, width, height))
+
+    for dt, t, c in zip(default_templates.values(), templates.values(), colors):
+
+        s = (t.log10lam>lam_range[0])&(t.log10lam<lam_range[1])
+        ax.plot(t.log10lam[s], np.log10(t.fnu[s]/dt.fnu[s]), lw=1, label = rf'$\rm {t.number}$', color = c, alpha = 0.5)
+
+
+    ax.legend(fontsize = 6, labelspacing = 0.1)
+    template_set_id = '.'.join(template_set_prameter_file.split('.')[:-2])
+
+    ax.axhline(0.0, c='k',alpha=0.1, lw=3)
+    ax.set_ylim([-1.49, 1.49])
+    ax.set_xlabel(r'$\rm log_{10}(\lambda/\AA)$')
+    ax.set_ylabel(r'$\rm log_{10}(L_{\nu}/L_{\nu}^{default})$')
+
+    fig.savefig(f'figs/{template_set_id}_comparison.pdf')
+    fig.savefig(f'figs/{template_set_id}_comparison.png')
+
+
 
 
 def plot_template_set_individual(template_set_prameter_file, path_to_eazy):
@@ -83,19 +124,17 @@ def plot_template_set_individual(template_set_prameter_file, path_to_eazy):
 def create_page(grid_id):
 
     grid_id_k = parse_grid_id(grid_id)
-    print(grid_id_k)
 
     page = f"""
 ## | {grid_id_k["sps_model"].upper()} | {grid_id_k["sps_model_version"]} | {grid_id_k["imf"]} | {grid_id_k["imf_hmc"]} |
 ### {grid_id}
 ![](../figs/Wilkins22_{grid_id}_all.png)
 ![](../figs/Wilkins22_{grid_id}_individual.png)
+![](../figs/Wilkins22_{grid_id}_comparison.png)
     """
 
     with open(f'pages/Wilkins22_{grid_id}.md','w+') as f:
         f.writelines(page)
-
-
 
 
     print(f'| {grid_id_k["sps_model"].upper()} | {grid_id_k["sps_model_version"]} | {grid_id_k["imf"]} | {grid_id_k["imf_hmc"]} | [Page](docs/pages/Wilkins22_{grid_id}.md)')
@@ -105,8 +144,8 @@ def create_page(grid_id):
 if __name__ == '__main__':
 
 
-    sps_grids = [
-    # 'bc03_chabrier03',
+    grid_ids = [
+    'bc03_chabrier03',
     # 'bpass-v2.2.1-bin_100-100',
     # 'bpass-v2.2.1-bin_100-300',
     # 'bpass-v2.2.1-bin_135-100',
@@ -129,15 +168,16 @@ if __name__ == '__main__':
 
     path_to_templates = '../' # --- templates contained in this module
 
+    default_grid_id = 'bpass-v2.2.1-bin_chab-100'
+    default_template_set_prameter_file = f'Wilkins22_{default_grid_id}.spectra.param'
 
-    print(parse_grid_id('bpass-v2.2.1-bin_100-300'))
-
-    for grid_id in ['bpass-v2.2.1-bin_chab-100']:
+    for grid_id in grid_ids:
 
         template_set_prameter_file = f'Wilkins22_{grid_id}.spectra.param'
 
-        # plot_template_set_all(template_set_prameter_file, path_to_templates)
-        # plot_template_set_individual(template_set_prameter_file, path_to_templates)
+        plot_template_set_all(template_set_prameter_file, path_to_templates)
+        plot_template_set_individual(template_set_prameter_file, path_to_templates)
+        plot_template_comparison(default_template_set_prameter_file, template_set_prameter_file, path_to_templates)
         create_page(grid_id)
 
     # --- Generate plots of other template set
