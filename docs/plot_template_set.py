@@ -81,11 +81,9 @@ def plot_template_set_individual(template_set_prameter_file, path_to_eazy):
 
 def create_page(template_set_prameter_file):
 
-    print(template_set_prameter_file)
+
 
     template_set_id = '.'.join(template_set_prameter_file.split('.')[:-2])
-
-    print(template_set_id)
 
     page = f"""
 ## {template_set_id}
@@ -97,6 +95,7 @@ def create_page(template_set_prameter_file):
         f.writelines(page)
 
 
+    print(f'| BPASS | 2.2.1-binary | Chabrier | 100 | [Page](docs/pages/{template_set_id}.md)')
 
 
 
