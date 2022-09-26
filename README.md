@@ -17,18 +17,21 @@ The philosophy behind these templates is:
 
 | Template Number | SFH | Z | $f_{\rm esc}$ | $f_{\rm esc, Ly-\alpha}$ | $\tau_{V}$ | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1  | 10 Myr Constant  | 0.01 | 0.0 | 1.0 | 0.0 | |
-| 2  | 10 Myr Constant  | 0.01 | 0.0 | 0.0 | 0.0 | No Lyman- $\alpha$ |
-| 3  | 10 Myr Constant  | 0.01 | 1.0 | N/A | 0.0 | |
-| 4  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 0.0 | |
-| 5  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 0.3 | |
-| 6  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 1.0 | |
-| 7  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 3.0 | |
-| 8  | 100 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
-| 9  | 316 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
-| 10 | 1000 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
-| 11 | 3162 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
-| 12 | 10000 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
+| 1  | 10 Myr Constant  | 0.001 | 0.0 | 1.0 | 0.0 | |
+| 2  | 10 Myr Constant  | 0.001 | 0.0 | 0.0 | 0.0 | No Lyman- $\alpha$ |
+| 3  | 10 Myr Constant  | 0.001 | 1.0 | N/A | 0.0 | |
+| 4  | 10 Myr Constant  | 0.01 | 0.0 | 1.0 | 0.0 | |
+| 5  | 10 Myr Constant  | 0.01 | 0.0 | 0.0 | 0.0 | No Lyman- $\alpha$ |
+| 6  | 10 Myr Constant  | 0.01 | 1.0 | N/A | 0.0 | |
+| 7  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 0.0 | |
+| 8  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 0.3 | |
+| 9  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 1.0 | |
+| 10  | 100 Myr Constant  | 0.01 | 0.0 | 1.0 | 3.0 | |
+| 11  | 100 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
+| 12  | 316 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
+| 13 | 1000 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
+| 14 | 3162 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
+| 15 | 10000 Myr Burst | 0.01 | 1.0 | N/A | 0.0 | |
 
 
 ## Available SPS models and initial mass functions

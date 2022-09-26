@@ -114,20 +114,20 @@ if __name__ == '__main__':
 
 
     sps_grids = [
-    # 'bc03_chabrier03',
-    # 'bpass-v2.2.1-bin_100-100',
-    # 'bpass-v2.2.1-bin_100-300',
-    # 'bpass-v2.2.1-bin_135-100',
-    # 'bpass-v2.2.1-bin_135-300',
-    # 'bpass-v2.2.1-bin_135all-100',
-    # 'bpass-v2.2.1-bin_170-100',
-    # 'bpass-v2.2.1-bin_170-300',
-    # 'fsps-v3.2_Chabrier03',
-    # 'bpass-v2.2.1-bin_chab-100',
-    # 'bpass-v2.2.1-bin_chab-300',
-    # 'maraston-rhb_kroupa',
-    # 'maraston-rhb_salpeter',
-    # 'bc03-2016-Stelib_chabrier03',
+    'bc03_chabrier03',
+    'bpass-v2.2.1-bin_100-100',
+    'bpass-v2.2.1-bin_100-300',
+    'bpass-v2.2.1-bin_135-100',
+    'bpass-v2.2.1-bin_135-300',
+    'bpass-v2.2.1-bin_135all-100',
+    'bpass-v2.2.1-bin_170-100',
+    'bpass-v2.2.1-bin_170-300',
+    'fsps-v3.2_Chabrier03',
+    'bpass-v2.2.1-bin_chab-100',
+    'bpass-v2.2.1-bin_chab-300',
+    'maraston-rhb_kroupa',
+    'maraston-rhb_salpeter',
+    'bc03-2016-Stelib_chabrier03',
     'bc03-2016-BaSeL_chabrier03',
     'bc03-2016-Miles_chabrier03',
     ]
@@ -140,6 +140,9 @@ if __name__ == '__main__':
 
         te = TemplateGenerator(sps_grid, cloudy_grid)
 
+        te.generate_constant_galaxy(duration = 10 * Myr, Z = 0.001, fesc = 0.0, fesc_LyA = 1.0, tauV = 0.0) # 10 Myr + nebular + LyA + no dust
+        te.generate_constant_galaxy(duration = 10 * Myr, Z = 0.001, fesc = 0.0, fesc_LyA = 0.0, tauV = 0.0) # 10 Myr + nebular + no LyA + no dust
+        te.generate_constant_galaxy(duration = 10 * Myr, Z = 0.001, fesc = 1.0, fesc_LyA = 1.0, tauV = 0.0) # 10 Myr + no nebular + no dust
 
         te.generate_constant_galaxy(duration = 10 * Myr, Z = Z, fesc = 0.0, fesc_LyA = 1.0, tauV = 0.0) # 10 Myr + nebular + LyA + no dust
         te.generate_constant_galaxy(duration = 10 * Myr, Z = Z, fesc = 0.0, fesc_LyA = 0.0, tauV = 0.0) # 10 Myr + nebular + no LyA + no dust
