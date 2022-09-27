@@ -27,7 +27,7 @@ class TemplateGenerator:
         self.i = 1 # running index of template
 
         # --- create output path
-        Path(f'{self.out_dir}/{self.template_set_name}_{self.sps_grid}').mkdir(parents=True, exist_ok=True)
+        Path(f'{self.out_dir}/{self.template_set_name}/{self.sps_grid}').mkdir(parents=True, exist_ok=True)
 
         # --- create parameter file
         self.param_file = []
@@ -50,9 +50,9 @@ class TemplateGenerator:
 
         llam = convert_fnu_to_flam(lam, galaxy.spectra['total'].lnu)
 
-        np.savetxt(f'{self.out_dir}/{self.template_set_name}_{self.sps_grid}/{self.i}.dat', np.array([lam, llam]).T)
+        np.savetxt(f'{self.out_dir}/{self.template_set_name}/{self.sps_grid}/{self.i}.dat', np.array([lam, llam]).T)
 
-        self.param_file.append(f'{self.i} templates/{self.template_set_name}_{self.sps_grid}/{self.i}.dat 1.0 {10**(log10age-9):.2f} 1.0')
+        self.param_file.append(f'{self.i} templates/{self.template_set_name}/{self.sps_grid}/{self.i}.dat 1.0 {10**(log10age-9):.2f} 1.0')
 
         self.i += 1
 
