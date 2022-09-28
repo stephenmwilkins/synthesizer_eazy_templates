@@ -13,7 +13,7 @@ import flare.plt as fplt
 from synthesizer.grid import parse_grid_id
 
 
-def plot_beta(template_sets):
+def plot_beta(template_sets, W22 = True):
 
     n = len(template_sets.keys())
 
@@ -27,13 +27,18 @@ def plot_beta(template_sets):
 
         # nm, model, imf = template_set_name.split('_')
 
-        tn = '.'.join(template_set_name.split('.')[:-2])
-        tn = '_'.join(tn.split('_')[1:])
+        if template_set_name.split('-')[0] == 'Wilkins22':
 
-        grid_id_k = parse_grid_id(tn)
+            tn = '.'.join(template_set_name.split('.')[:-2])
+            tn = '_'.join(tn.split('_')[1:])
 
-        ax.text(-0.05, 0.6, f'{grid_id_k["sps_model"].upper()}-{grid_id_k["sps_model_version"]}', fontsize = 7, ha = 'right', transform = ax.transAxes)
-        ax.text(-0.05, 0.3, f'{grid_id_k["imf"]}', fontsize = 5, ha = 'right', transform = ax.transAxes)
+            grid_id_k = parse_grid_id(tn)
+
+            ax.text(-0.05, 0.6, f'{grid_id_k["sps_model"].upper()}-{grid_id_k["sps_model_version"]}', fontsize = 7, ha = 'right', transform = ax.transAxes)
+            ax.text(-0.05, 0.3, f'{grid_id_k["imf"]}', fontsize = 5, ha = 'right', transform = ax.transAxes)
+
+
+
 
         for t, c in zip(templates.values(), colors):
 
@@ -70,6 +75,8 @@ if __name__ == '__main__':
 
     path_to_templates = '../' # --- templates contained in this module
 
+    template_set_name = 'Wilkins22-v0.3'
+
     grid_ids = [
     'bpass-v2.2.1-bin_100-100',
     'bpass-v2.2.1-bin_100-300',
@@ -90,10 +97,17 @@ if __name__ == '__main__':
     ]
 
 
-    for grid_id in grid_ids:
+    # for grid_id in grid_ids:
+    #
+    #     template_set_prameter_file = f'{template_set_name}_{grid_id}.spectra.param'
+    #
+    #     template_sets[template_set_prameter_file] = read_templates(template_set_prameter_file, path_to_templates)
 
-        template_set_prameter_file = f'Wilkins22_{grid_id}.spectra.param'
 
+
+    # --- Generate plots of beta templates
+
+    for template_set_prameter_file in ['beta.spectra.param','Wilkins22-v0.3_fsps-v3.2_Chabrier03.spectra.param']:
         template_sets[template_set_prameter_file] = read_templates(template_set_prameter_file, path_to_templates)
 
 
@@ -103,6 +117,8 @@ if __name__ == '__main__':
     #
     # for template_set_prameter_file in ['Larson22.spectra.param','tweak_fsps_QSF_12_v3.spectra.param']:
     #     template_sets[template_set_prameter_file] = read_templates(template_set_prameter_file, path_to_templates)
+
+
 
 
     plot_beta(template_sets)
