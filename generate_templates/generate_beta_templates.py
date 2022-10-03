@@ -94,9 +94,9 @@ if __name__ == '__main__':
         llam = (lam/5500)**beta
         llam[lam<912] = 0.0
 
-        np.savetxt(f'{out_dir}/{template_set_name}/{i}.dat', np.array([lam, llam]).T)
+        np.savetxt(f'{out_dir}/{template_set_name}/{i+1}.dat', np.array([lam, llam]).T)
 
-        param_file.append(f'{i} templates/{template_set_name}/{i}.dat 1.0 0.0 1.0')
+        param_file.append(f'{i+1} templates/{template_set_name}/{i+1}.dat 1.0 0.0 1.0')
 
     # --- save parameter file
     with open(f'{out_dir}/{template_set_name}.spectra.param', 'w') as f:
