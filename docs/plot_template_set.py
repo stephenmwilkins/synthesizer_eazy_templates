@@ -128,16 +128,16 @@ def create_page(grid_id):
     page = f"""
 ## | {grid_id_k["sps_model"].upper()} | {grid_id_k["sps_model_version"]} | {grid_id_k["imf"]} | {grid_id_k["imf_hmc"]} |
 ### {grid_id}
-![](../figs/Wilkins22_{grid_id}_all.png)
-![](../figs/Wilkins22_{grid_id}_individual.png)
-![](../figs/Wilkins22_{grid_id}_comparison.png)
+![](../figs/{template_set_id}_all.png)
+![](../figs/{template_set_id}_individual.png)
+![](../figs/{template_set_id}_comparison.png)
     """
 
-    with open(f'pages/Wilkins22_{grid_id}.md','w+') as f:
+    with open(f'pages/W{template_set_id}.md','w+') as f:
         f.writelines(page)
 
 
-    print(f'| {grid_id_k["sps_model"].upper()} | {grid_id_k["sps_model_version"]} | {grid_id_k["imf"]} | {grid_id_k["imf_hmc"]} | [Page](docs/pages/Wilkins22_{grid_id}.md)')
+    print(f'| {grid_id_k["sps_model"].upper()} | {grid_id_k["sps_model_version"]} | {grid_id_k["imf"]} | {grid_id_k["imf_hmc"]} | [Page](docs/pages/{template_set_id}.md)')
 
 
 
@@ -145,51 +145,53 @@ if __name__ == '__main__':
 
 
     grid_ids = [
-    # 'bpass-v2.2.1-bin_100-100',
-    # 'bpass-v2.2.1-bin_100-300',
-    # 'bpass-v2.2.1-bin_135-100',
-    # 'bpass-v2.2.1-bin_135-300',
-    # 'bpass-v2.2.1-bin_135all-100',
-    # 'bpass-v2.2.1-bin_170-100',
-    # 'bpass-v2.2.1-bin_170-300',
-    # 'bpass-v2.2.1-bin_chab-100',
-    # 'bpass-v2.2.1-bin_chab-300',
+    'bpass-v2.2.1-bin_100-100',
+    'bpass-v2.2.1-bin_100-300',
+    'bpass-v2.2.1-bin_135-100',
+    'bpass-v2.2.1-bin_135-300',
+    'bpass-v2.2.1-bin_135all-100',
+    'bpass-v2.2.1-bin_170-100',
+    'bpass-v2.2.1-bin_170-300',
+    'bpass-v2.2.1-bin_chab-100',
+    'bpass-v2.2.1-bin_chab-300',
     'fsps-v3.2_Chabrier03',
-    # 'maraston-rhb_kroupa',
-    # 'maraston-rhb_salpeter',
-    # 'bc03_chabrier03',
-    # 'bc03-2016-Stelib_chabrier03',
-    # 'bc03-2016-BaSeL_chabrier03',
-    # 'bc03-2016-Miles_chabrier03',
+    'maraston-rhb_kroupa',
+    'maraston-rhb_salpeter',
+    'bc03_chabrier03',
+    'bc03-2016-Stelib_chabrier03',
+    'bc03-2016-BaSeL_chabrier03',
+    'bc03-2016-Miles_chabrier03',
     ]
 
 
     # --- Generate plots of the template sets in this module
 
-    # path_to_templates = '../' # --- templates contained in this module
-    #
-    # template_set = 'Wilkins22-v0.3'
-    #
-    # default_grid_id = 'fsps-v3.2_Chabrier03'
-    # # default_grid_id = 'bpass-v2.2.1-bin_chab-100'
-    # default_template_set_prameter_file = f'{template_set}_{default_grid_id}.spectra.param'
-    #
-    #
-    # for grid_id in grid_ids:
-    #
-    #     template_set_prameter_file = f'{template_set}_{grid_id}.spectra.param'
-    #
-    #     plot_template_set_all(template_set_prameter_file, path_to_templates)
-    #     plot_template_set_individual(template_set_prameter_file, path_to_templates)
-    #     plot_template_comparison(default_template_set_prameter_file, template_set_prameter_file, path_to_templates)
-    #     create_page(grid_id)
+    path_to_templates = '../' # --- templates contained in this module
 
-    # --- Generate plots of other template set
+    template_set = 'Wilkins22-v0.3'
+
+    default_grid_id = 'fsps-v3.2_Chabrier03'
+    # default_grid_id = 'bpass-v2.2.1-bin_chab-100'
+    default_template_set_prameter_file = f'{template_set}_{default_grid_id}.spectra.param'
 
 
-    path_to_templates = os.getenv('EAZY') # --- templates contained in this module
+    for grid_id in grid_ids:
 
-    for template_set_prameter_file in ['beta.spectra.param', 'Larson22.spectra.param','tweak_fsps_QSF_12_v3.spectra.param']:
+
+        template_set_prameter_file = f'{template_set}_{grid_id}.spectra.param'
+        template_set_id = '.'.join(template_set_prameter_file.split('.')[:-2])
 
         plot_template_set_all(template_set_prameter_file, path_to_templates)
         plot_template_set_individual(template_set_prameter_file, path_to_templates)
+        plot_template_comparison(default_template_set_prameter_file, template_set_prameter_file, path_to_templates)
+        create_page(grid_id)
+
+    # --- Generate plots of other template set
+
+    #
+    # path_to_templates = os.getenv('EAZY') # --- templates contained in this module
+    #
+    # for template_set_prameter_file in ['beta.spectra.param', 'Larson22.spectra.param','tweak_fsps_QSF_12_v3.spectra.param']:
+    #
+    #     plot_template_set_all(template_set_prameter_file, path_to_templates)
+    #     plot_template_set_individual(template_set_prameter_file, path_to_templates)
