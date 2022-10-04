@@ -133,7 +133,7 @@ def create_page(grid_id):
 ![](../figs/{template_set_id}_comparison.png)
     """
 
-    with open(f'pages/W{template_set_id}.md','w+') as f:
+    with open(f'pages/{template_set_id}.md','w+') as f:
         f.writelines(page)
 
 
